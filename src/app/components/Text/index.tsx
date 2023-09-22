@@ -1,11 +1,11 @@
-import { ReactNode } from "react";
+import { ComponentProps, ReactNode } from "react";
 import TextBaseBold from "./TextBaseBold";
 import TextUltraLargeBold from "./TextUltraLargeBold";
 import TextSpan from "./TextSpan";
 import TextLargeBold from "./TextLargeBold";
 import TextExtraLargeBold from "./TextExtraLargeBold";
 
-export interface TextProps {
+export interface TextProps extends ComponentProps<"p"> {
   children: ReactNode;
 }
 

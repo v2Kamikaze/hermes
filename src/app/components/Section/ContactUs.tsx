@@ -5,6 +5,7 @@ import Image from "next/image";
 import contactUsPicture from "../../../../public/contact-us.svg";
 import { Button } from "../Button";
 import { EnvelopeClosedIcon } from "@radix-ui/react-icons";
+import { Input } from "../Input";
 
 export default function ContactUs() {
   return (
@@ -19,26 +20,14 @@ export default function ContactUs() {
       </Text.BaseBold>
       <div className="grid items-center gap-4 pt-4 justify-center grid-cols-[3fr_2fr] max-md:grid-cols-1">
         <form className="flex flex-col gap-4">
-          <input
-            id="name"
-            placeholder="Seu nome"
-            required
-            className="block text-base p-4 border-gray-300 border rounded-md placeholder-black focus:outline-none focus:border-app-orange"
-            type="text"
-          />
-          <input
+          <Input.Default id="name" placeholder="Seu nome" type="text" />
+
+          <Input.Default
             id="email"
             placeholder="Seu melhor e-mail"
-            required
-            className="block text-base p-4 border-gray-300 border rounded-md placeholder-black focus:outline-none focus:border-app-orange"
             type="email"
           />
-          <textarea
-            placeholder="Sua mensagem"
-            required
-            className="text-base p-4 border-gray-300 border rounded-md resize-none placeholder-black focus:outline-none focus:border-app-orange"
-            rows={5}
-          ></textarea>
+          <Input.TextArea id="message" placeholder="Sua mensagem" rows={5} />
           <Button.Root>
             <Text.BaseBold>Enviar</Text.BaseBold>
             <EnvelopeClosedIcon className="w-6 h-6 stroke-white" />
