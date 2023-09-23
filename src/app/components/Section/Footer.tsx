@@ -1,7 +1,7 @@
 import React from "react";
 import { Text } from "../Text";
 
-import { SocialIcon } from 'react-social-icons';
+import { SocialIcon } from "react-social-icons";
 
 import List from "../List";
 import Image from "next/image";
@@ -26,33 +26,21 @@ export default function Footer() {
   return (
     <footer className="shadow-t-md">
       <div className="max-w-7xl mx-auto px-9 py-6">
-        <div className="flex items-center justify-between gap-4 max-md:flex-col">
-          <div>
+        <div className="grid items-center pb-4 justify-between max-lg:justify-center gap-4 grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1">
+          <div className="flex items-center flex-col gap-4">
             <Text.BaseBold>Redes sociais</Text.BaseBold>
             <List direction="row">
               {logos.map((url, idx) => (
-                <SocialIcon key={idx} className="w-6 h-6" url={url} />
+                <SocialIcon key={idx} url={url}  className="max-w- max-w-[80px]" />
               ))}
             </List>
           </div>
 
-          <div>
+          <div className="flex items-center flex-col pb-4 gap-4">
             <Text.BaseBold>Baixe nosso App!</Text.BaseBold>
             <List direction="row">
-              <Image src={appStorePicture} alt={""} />
-              <Image src={googlePlayPicture} alt={""} />
-            </List>
-          </div>
-
-          <div className="flex items-center justify-center pb-4">
-
-            <List>
-            <Text.BaseBold>Ouvidoria</Text.BaseBold>
-              <Text.BaseBold>0800 999 9999</Text.BaseBold>
-              <Text.BaseBold>ouvidoria@hermesbank.com.br</Text.BaseBold>
-              <Text.BaseBold>
-                Atendimento das 9h às 18h (dias úteis)
-              </Text.BaseBold>
+              <Image src={appStorePicture} alt={""} className="max-w- max-w-[100px]" />
+              <Image src={googlePlayPicture} alt={""} className="max-w- max-w-[100px]" />
             </List>
           </div>
         </div>
