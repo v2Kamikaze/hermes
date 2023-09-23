@@ -9,7 +9,7 @@ import { Input } from "../Input";
 
 export default function ContactUs() {
   return (
-    <section className="px-9 py-16 space-y-4 max-w-7xl mx-auto" id="contact-us">
+    <section className="px-9 py-16 space-y-4 max-w-7xl mx-auto animate-slide-from-left-slow" id="contact-us">
       <Text.ExtraLargeBold>
         Entre em contato com a <Text.Span>gente!</Text.Span>
       </Text.ExtraLargeBold>

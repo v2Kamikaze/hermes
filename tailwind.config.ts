@@ -17,6 +17,10 @@ const config: Config = {
       },
       animation: {
         "slide-from-top": "slide-from-top 0.3s ease-in-out",
+        "slide-from-top-slow": "slide-from-top-slow 0.5s linear",
+        "slide-from-left-slow": "slide-from-left-slow 0.5s linear",
+        "slide-from-right-slow": "slide-from-right-slow 0.5s linear",
+        "slide-from-bottom-slow": "slide-from-bottom-slow 0.5s linear",
       },
       keyframes: {
         "slide-from-top": {
@@ -29,7 +33,50 @@ const config: Config = {
             opacity: "1",
           },
         },
+        "slide-from-top-slow": {
+          from: {
+            transform: "translateY(-10px)",
+            opacity: "0",
+          },
+          to: {
+            transform: "translateY(0)",
+            opacity: "1",
+          },
+        },
+        "slide-from-left-slow": {
+          from: {
+            transform: "translateX(-10px)",
+            opacity: "0",
+          },
+          to: {
+            transform: "translateY(0)",
+            opacity: "1",
+          },
+        },
+
+        "slide-from-right-slow": {
+          from: {
+            transform: "translateX(10px)",
+            opacity: "0",
+          },
+          to: {
+            transform: "translateY(0)",
+            opacity: "1",
+          },
+        },
+
+        "slide-from-bottom-slow": {
+          from: {
+            transform: "translateY(10px)",
+            opacity: "0",
+          },
+          to: {
+            transform: "translateY(0)",
+            opacity: "1",
+          },
+        },
       },
+
     },
   },
   plugins: [],

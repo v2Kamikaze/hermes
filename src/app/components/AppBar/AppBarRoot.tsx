@@ -6,7 +6,7 @@ interface AppBarRootProps {
 
 export default function AppBarRoot({ children }: AppBarRootProps) {
   return (
-    <nav className="shadow-md">
+    <nav className="shadow-md animate-slide-from-top-slow">
       <div className="flex items-center justify-between max-w-7xl mx-auto px-9 py-6">
         {children}
       </div>

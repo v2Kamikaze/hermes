@@ -24,7 +24,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="shadow-t-md">
+    <footer className="shadow-t-md animate-slide-from-bottom-slow">
       <div className="max-w-7xl mx-auto px-9 py-6">
         <div className="grid items-center pb-4 justify-between max-lg:justify-center gap-4 grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1">
           <div className="flex items-center flex-col gap-4">

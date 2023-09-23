@@ -10,7 +10,7 @@ import Tile from "../Tile";
 
 export default function AboutUs() {
   return (
-    <section className="px-9 space-y-4 max-w-7xl mx-auto" id="about-us">
+    <section className="px-9 space-y-4 max-w-7xl mx-auto animate-slide-from-left-slow" id="about-us">
       <Text.ExtraLargeBold>
         Sobre o <Text.Span>Hermes Bank</Text.Span>{" "}
       </Text.ExtraLargeBold>
