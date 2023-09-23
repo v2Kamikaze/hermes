@@ -1,10 +1,5 @@
 import React from "react";
 import { Text } from "../Text";
-import {
-  InstagramLogoIcon,
-  LinkedInLogoIcon,
-  TwitterLogoIcon,
-} from "@radix-ui/react-icons";
 
 import List from "../List";
 import Image from "next/image";
@@ -34,13 +29,13 @@ export default function Footer() {
             <Text.BaseBold>Redes sociais</Text.BaseBold>
             <List direction="row">
               {logos.map((logo) => (
-                <Image src={logo} alt="" className="w-6 h-6 stroke-black" />
+                <Image src={logo} alt="" className="w-6 h-6 stroke-black" key={logo}/>
               ))}
             </List>
           </div>
 
           <div>
-            <Text.BaseBold>Baixe o App</Text.BaseBold>
+            <Text.BaseBold>Baixe nosso App!</Text.BaseBold>
             <List direction="row">
               <Image src={appStorePicture} alt={""} />
               <Image src={googlePlayPicture} alt={""} />
@@ -53,7 +48,7 @@ export default function Footer() {
               <Text.BaseBold>0800 999 9999</Text.BaseBold>
               <Text.BaseBold>ouvidoria@hermesbank.com.br</Text.BaseBold>
               <Text.BaseBold>
-                Atendimento das 9h ás 18h (dias úteis)
+                Atendimento das 9h às 18h (dias úteis)
               </Text.BaseBold>
             </List>
           </div>

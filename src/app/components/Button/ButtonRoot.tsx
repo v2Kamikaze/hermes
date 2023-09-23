@@ -9,7 +9,6 @@ interface ButtonRootProps extends ComponentProps<"button"> {
 export default function ButtonRoot({ className, children }: ButtonRootProps) {
   return (
     <button
-      onClick={(e) => e.preventDefault()}
       className={`flex items-center justify-between gap-4 bg-app-orange text-white p-4 rounded-lg hover:bg-app-orange/90 w-full ${className}`}
     >
       {children}

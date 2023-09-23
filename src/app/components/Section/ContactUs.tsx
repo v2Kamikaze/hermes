@@ -9,9 +9,9 @@ import { Input } from "../Input";
 
 export default function ContactUs() {
   return (
-    <section className="px-9 py-16 space-y-4 max-w-7xl mx-auto">
+    <section className="px-9 py-16 space-y-4 max-w-7xl mx-auto" id="contact-us">
       <Text.ExtraLargeBold>
-        Entre em contato com <Text.Span>Hermes Bank</Text.Span>
+        Entre em contato com a <Text.Span>gente!</Text.Span>
       </Text.ExtraLargeBold>
       <Text.BaseBold>
         Estamos sempre aqui para ouvir você e ajudar com todas as suas

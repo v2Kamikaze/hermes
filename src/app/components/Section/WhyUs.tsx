@@ -6,7 +6,7 @@ import Tile from "../Tile";
 
 export default function WhyUs() {
   return (
-    <section className="px-9 pt-9 pb-16 space-y-4 max-w-7xl mx-auto max-md:grid-cols-1 max-md:pb-9">
+    <section className="px-9 pt-9 pb-16 space-y-4 max-w-7xl mx-auto max-md:grid-cols-1 max-md:pb-9" id="why-us">
       <Text.ExtraLargeBold>
         Por que escolher o <Text.Span>Hermes Bank</Text.Span>?
       </Text.ExtraLargeBold>

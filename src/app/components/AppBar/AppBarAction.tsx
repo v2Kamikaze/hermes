@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 interface AppBarActionProps {
@@ -8,7 +9,7 @@ interface AppBarActionProps {
 export default function AppBarAction({ text, href = "#" }: AppBarActionProps) {
   return (
     <li className="px-4 py-1 text-lg text-center w-auto hover:bg-app-orange/70 hover:rounded-md">
-      <a href={href}>{text}</a>
+      <Link href={href}>{text}</Link>
     </li>
   );
 }
