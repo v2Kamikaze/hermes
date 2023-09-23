@@ -3,23 +3,35 @@ import { useState } from "react";
 import { Text } from "../components/Text";
 import Image from "next/image";
 import contactUsPicture from "../../../public/contact-us.svg";
-import { Button } from "../components/Button";
 import { PaperPlaneIcon, SymbolIcon } from "@radix-ui/react-icons";
 import { Input } from "../components/Input";
-import { mask, unMask } from "remask";
+import { mask } from "remask";
 import { AppBar } from "../components/AppBar";
 import Logo from "../components/Logo";
 
 export default function Home() {
-  const [cpf, setCpf] = useState("");
-  const [phone, setPhone] = useState("");
   const [icon, setIcon] = useState(
+
     <PaperPlaneIcon className="w-6 h-6 stroke-white" />
   );
 
+  const [name, setName] = useState("");
+  const [cpf, setCpf] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+
   function handleClick() {
     setIcon(<SymbolIcon className="w-6 h-6 animate-spin stroke-white" />);
+    fetch("http://localhost:5001/Clients", requestOptions)
+    .then((response) => response.json())
+    .then((data) => {});
   }
+
+  const requestOptions = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ cpf, email, phone, name }),
+  };
 
   return (
     <>
@@ -46,6 +58,7 @@ export default function Home() {
               id="name"
               placeholder="Herbert Viana"
               type="text"
+              onChange={(e) => setName(e.target.value)}
               required
             />
 
@@ -68,6 +81,7 @@ export default function Home() {
               id="email"
               placeholder="herbertviana@email.com"
               type="email"
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
 
@@ -86,7 +100,10 @@ export default function Home() {
 
             <button
               className="flex items-center justify-between gap-4 bg-app-orange text-white p-4 rounded-lg hover:bg-app-orange/90 w-full"
-              onClick={handleClick}
+              onClick={(e) => {
+                e.preventDefault();
+                handleClick();
+              }}
             >
               <Text.BaseBold>Cadastrar</Text.BaseBold>
               {icon}
