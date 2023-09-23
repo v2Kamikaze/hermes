@@ -5,8 +5,8 @@ import hermesLogo from "../../../../public/hermes-logo.png";
 export default function Logo() {
   return (<div>
     <a href="/">
-      <Image src={hermesLogo} alt={""} height="150" width="150"/>
-    </a> 
+      <Image src={hermesLogo} alt={""} height="120" width="120" className="w-auto h-auto"/>
+    </a>
   </div>
   );
-} 
+}
