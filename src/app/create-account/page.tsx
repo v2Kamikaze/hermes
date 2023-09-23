@@ -1,13 +1,33 @@
+"use client";
+import { useState } from 'react';
 import { Text } from "../components/Text";
 import Image from "next/image";
 import contactUsPicture from "../../../public/contact-us.svg";
 import { Button } from "../components/Button";
-import { PaperPlaneIcon } from "@radix-ui/react-icons";
+import { PaperPlaneIcon, SymbolIcon } from "@radix-ui/react-icons";
 import { Input } from "../components/Input";
-import { insertMaskInCpf } from "./cpf";
+import { mask, unMask } from 'remask';
+import { AppBar } from "../components/AppBar";
+import Logo from "../components/Logo";
 
 export default function Home() {
+  const [cpf, setCpf] = useState('');
+  const [phone, setPhone] = useState('');
+  const [icon, setIcon] = useState(<PaperPlaneIcon className="w-6 h-6 stroke-white" />);
+
+  function handleClick() {
+    setIcon(<SymbolIcon className="w-6 h-6 animate-spin stroke-white"/>);
+  }
+
   return (
+    <>
+    <AppBar.Root>
+      <Logo />
+      <AppBar.Actions>
+        <AppBar.Action text="<-- Voltar ao Início" href="/"/>
+      </AppBar.Actions>
+  </AppBar.Root>
+
     <section className="px-9 py-16 space-y-4 max-w-7xl mx-auto">
       <Text.ExtraLargeBold>
         Faça parte da <Text.Span>maior revolução financeira</Text.Span> dos últimos tempos!
@@ -21,11 +41,13 @@ export default function Home() {
           <Input.Default id="name" placeholder="Herbert Viana" type="text" required/>
 
           <Text.BaseBold>CPF:</Text.BaseBold>
-          <Input.Default
+          <input 
+            className="block text-base p-4 border-gray-300 border rounded-md placeholder-black focus:outline-none focus:border-app-orange"
             id="cpf"
             placeholder="xxx.xxx.xxx-xx"
             type="text"
-            pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}" 
+            value={cpf}
+            onChange={e => setCpf(mask(e.target.value, '999.999.999-99'))}
             required
           />
 
@@ -40,21 +62,33 @@ export default function Home() {
           />
 
           <Text.BaseBold>Seu número de telefone:</Text.BaseBold>
-          <Input.Default 
-            id="phone" 
-            placeholder="(99) 99999-99" 
-            type="tel" 
-            pattern="[0-9]{2} [0-9]{5}-[0-9]{4}" required/>
+          <input 
+            className="block text-base p-4 border-gray-300 border rounded-md placeholder-black focus:outline-none focus:border-app-orange"
+            id="phone"
+            placeholder="(99) 99999-9999"
+            type="text"
+            value={phone}
+            onChange={e => setPhone(mask(e.target.value, '(99) 99999-9999'))}
+            required
+          />
 
-          <Button.Root>
+          <button className="flex items-center justify-between gap-4 bg-app-orange text-white p-4 rounded-lg hover:bg-app-orange/90 w-full"
+          onClick={handleClick}
+          >
             <Text.BaseBold>Cadastrar</Text.BaseBold>
-            <PaperPlaneIcon className="w-6 h-6 stroke-white" />
-            {/*<span className="w-6 h-6 animate-spin rounded-full border-white border-4 border-t-0"/>*/}
-          </Button.Root>
+            {icon}
+          </button>
+
+          {/*<Button.Root>
+            <Text.BaseBold>Cadastrar</Text.BaseBold>
+            {button}
+            <span className="w-6 h-6 animate-spin rounded-full border-white border-4 border-t-0"/>
+          </Button.Root> */}
 
         </form>
         <Image className="max-md:hidden" src={contactUsPicture} alt="" />
       </div>
   </section>
+  </>
   )
 }
